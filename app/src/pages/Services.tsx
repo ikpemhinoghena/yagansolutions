@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { 
-  Globe, 
-  Zap, 
-  TrendingUp, 
-  Shield, 
-  Code, 
-  Search, 
+import {
+  Globe,
+  Zap,
+  TrendingUp,
+  Shield,
+  Code,
+  Search,
   Wrench,
   BarChart3,
   CheckCircle,
@@ -13,7 +13,10 @@ import {
   Sparkles,
   Clock,
   Users,
-  Award
+  Award,
+  Box,
+  Cpu,
+  Palette
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LiquidGlassCard from '../components/LiquidGlassCard';
@@ -39,7 +42,8 @@ const Services = () => {
         'Improved user engagement'
       ],
       color: 'from-[#1A56DB] to-[#00C6C6]',
-      glowColor: 'blue' as const
+      glowColor: 'blue' as const,
+      path: '/contact'
     },
     {
       icon: <Search className="w-10 h-10" />,
@@ -60,7 +64,8 @@ const Services = () => {
         'Higher quality leads'
       ],
       color: 'from-[#6C3FF5] to-[#1A56DB]',
-      glowColor: 'violet' as const
+      glowColor: 'violet' as const,
+      path: '/contact'
     },
     {
       icon: <BarChart3 className="w-10 h-10" />,
@@ -81,7 +86,8 @@ const Services = () => {
         'ROI-focused recommendations'
       ],
       color: 'from-[#00C6C6] to-[#6C3FF5]',
-      glowColor: 'cyan' as const
+      glowColor: 'cyan' as const,
+      path: '/website-audit'
     },
     {
       icon: <Wrench className="w-10 h-10" />,
@@ -102,7 +108,8 @@ const Services = () => {
         'Proactive issue resolution'
       ],
       color: 'from-[#1A56DB] to-[#6C3FF5]',
-      glowColor: 'blue' as const
+      glowColor: 'blue' as const,
+      path: '/contact'
     }
   ];
 
@@ -136,26 +143,31 @@ const Services = () => {
       period: 'one-time',
       description: 'Perfect for small businesses getting started.',
       features: [
-        '5-page website',
-        'Mobile responsive',
-        'Basic SEO setup',
-        'Contact form',
+        'Essential web presence',
+        'Mobile-responsive design',
+        'Basic SEO foundation',
+        'Social media integration',
+        'Contact & lead capture forms',
+        'Google Analytics setup',
         '2 revision rounds'
       ],
       popular: false
     },
     {
-      name: 'Professional',
+      name: 'Business',
       price: '$2,499',
       period: 'one-time',
       description: 'Ideal for growing businesses.',
       features: [
-        '10-page website',
-        'Advanced SEO',
-        'Blog setup',
-        'Analytics integration',
-        '5 revision rounds',
-        '30-day support'
+        'Advanced website or landing pages',
+        'Full tech stack implementation',
+        'Complete SEO optimization',
+        'Content management system (CMS)',
+        'Third-party API integrations',
+        'Email marketing automation',
+        'Performance & speed optimization',
+        'Analytics & conversion tracking',
+        '5 revision rounds'
       ],
       popular: true
     },
@@ -163,14 +175,19 @@ const Services = () => {
       name: 'Enterprise',
       price: 'Custom',
       period: 'quote',
-      description: 'For large-scale projects.',
+      description: 'For large-scale businesses.',
       features: [
-        'Unlimited pages',
-        'Custom functionality',
-        'Priority support',
-        'Dedicated manager',
+        'Custom web applications',
+        'Full-stack development',
+        'Mobile app development ready',
+        'Comprehensive digital marketing suite',
+        'Advanced automation workflows',
+        'Multi-platform integrations',
+        'E-commerce solutions',
+        'AI tools & chatbots integration',
+        'Dedicated project manager',
         'Unlimited revisions',
-        '90-day support'
+        'Priority support & maintenance'
       ],
       popular: false
     }
@@ -198,7 +215,7 @@ const Services = () => {
               Solutions That <span className="gradient-text">Drive Growth</span>
             </h1>
             <p className="text-lg text-white/70 max-w-2xl mx-auto mb-10">
-              From web development to ongoing maintenance, we provide comprehensive 
+              From web development to ongoing maintenance, we provide comprehensive
               digital solutions tailored to your business goals.
             </p>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
@@ -221,9 +238,8 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Content */}
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
@@ -236,7 +252,7 @@ const Services = () => {
                   <p className="text-white/70 text-lg mb-6">
                     {service.fullDesc}
                   </p>
-                  
+
                   {/* Features */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {service.features.map((feature) => (
@@ -246,11 +262,11 @@ const Services = () => {
                       </div>
                     ))}
                   </div>
-                  
+
                   {/* Benefits */}
                   <div className="flex flex-wrap gap-3 mb-8">
                     {service.benefits.map((benefit) => (
-                      <span 
+                      <span
                         key={benefit}
                         className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-white/70"
                       >
@@ -258,16 +274,16 @@ const Services = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <Link 
-                    to="/contact" 
+
+                  <Link
+                    to={service.path}
                     className="btn-primary inline-flex items-center gap-2"
                   >
-                    Get Started
+                    {service.title === 'Performance Audit' ? 'Run Free Audit' : 'Get Started'}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
-                
+
                 {/* Visual */}
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   <LiquidGlassCard glowColor={service.glowColor} className="h-80 flex items-center justify-center">
@@ -286,10 +302,95 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Custom Digital Products Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#6C3FF5]/10 via-[#1A56DB]/10 to-[#00C6C6]/10" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="text-[#6C3FF5] text-sm font-semibold uppercase tracking-wider mb-4 block">
+              Custom Solutions
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              Have a <span className="gradient-text">Tool Idea?</span>
+            </h2>
+            <p className="text-white/70 text-lg max-w-3xl mx-auto mb-8">
+              We build custom digital products for businesses of all sizes. From innovative tools to cutting-edge solutions, we bring your vision to life.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <LiquidGlassCard glowColor="violet" className="text-center h-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6C3FF5] to-[#1A56DB] mb-4">
+                  <Box className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Plugins & Extensions</h3>
+                <p className="text-white/60">Custom plugins and extensions to extend functionality.</p>
+              </LiquidGlassCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <LiquidGlassCard glowColor="cyan" className="text-center h-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00C6C6] to-[#6C3FF5] mb-4">
+                  <Cpu className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">AI Agents & Dev Tools</h3>
+                <p className="text-white/60">Intelligent automation and developer tools.</p>
+              </LiquidGlassCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <LiquidGlassCard glowColor="blue" className="text-center h-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1A56DB] to-[#00C6C6] mb-4">
+                  <Palette className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Graphic Design & Logos</h3>
+                <p className="text-white/60">Professional branding and visual identity design.</p>
+              </LiquidGlassCard>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="text-center"
+          >
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+              <Sparkles className="w-5 h-5" />
+              Let's Build Your Idea
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Additional Services */}
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-radial" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -353,7 +454,7 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <LiquidGlassCard 
+                <LiquidGlassCard
                   glowColor={plan.popular ? 'violet' : 'none'}
                   className={`h-full relative ${plan.popular ? 'border-[#6C3FF5]/50' : ''}`}
                 >
@@ -364,7 +465,7 @@ const Services = () => {
                       </span>
                     </div>
                   )}
-                  
+
                   <div className="text-center mb-6">
                     <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
                     <div className="flex items-baseline justify-center gap-1">
@@ -375,7 +476,7 @@ const Services = () => {
                     </div>
                     <p className="text-white/60 text-sm mt-2">{plan.description}</p>
                   </div>
-                  
+
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-white/70">
@@ -384,14 +485,13 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  
-                  <Link 
+
+                  <Link
                     to="/contact"
-                    className={`w-full py-3 rounded-xl font-semibold text-center block transition-all ${
-                      plan.popular 
-                        ? 'bg-gradient-to-r from-[#1A56DB] to-[#6C3FF5] text-white hover:shadow-lg hover:shadow-[#6C3FF5]/30' 
+                    className={`w-full py-3 rounded-xl font-semibold text-center block transition-all ${plan.popular
+                        ? 'bg-gradient-to-r from-[#1A56DB] to-[#6C3FF5] text-white hover:shadow-lg hover:shadow-[#6C3FF5]/30'
                         : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
-                    }`}
+                      }`}
                   >
                     Get Started
                   </Link>
@@ -405,7 +505,7 @@ const Services = () => {
       {/* Why Choose Us */}
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A56DB]/10 via-[#6C3FF5]/10 to-[#00C6C6]/10" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -422,8 +522,9 @@ const Services = () => {
             {[
               { icon: <Award className="w-6 h-6" />, title: 'Expert Team', desc: 'Years of industry experience' },
               { icon: <Clock className="w-6 h-6" />, title: 'On-Time Delivery', desc: 'We respect your deadlines' },
-              { icon: <Users className="w-6 h-6" />, title: 'Dedicated Support', desc: 'We are here when you need us' },
-              { icon: <TrendingUp className="w-6 h-6" />, title: 'Results Driven', desc: 'Focused on your success' }
+              // { icon: <Users className="w-6 h-6" />, title: 'Dedicated Support', desc: 'We are here when you need us' },
+              { icon: <TrendingUp className="w-6 h-6" />, title: 'Results Driven', desc: 'Focused on your success' },
+              { icon: <Users className="w-6 h-6" />, title: 'Dynamic Collaboration', desc: 'We work seamlessly with your team' }
             ].map((item, index) => (
               <motion.div
                 key={item.title}

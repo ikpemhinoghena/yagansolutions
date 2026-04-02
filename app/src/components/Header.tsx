@@ -11,9 +11,9 @@ const Header = ({ scrollY }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
-  
+
   const isScrolled = scrollY > 50;
-  
+
   const navLinks = [
     { path: '/', label: 'Home', icon: <Sparkles className="w-4 h-4" /> },
     { path: '/services', label: 'Services', icon: <Zap className="w-4 h-4" /> },
@@ -31,29 +31,28 @@ const Header = ({ scrollY }: HeaderProps) => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.175, 0.885, 0.32, 1.275] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? 'py-3 liquid-glass-strong' 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+            ? 'py-3 liquid-glass-strong'
             : 'py-5 bg-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="flex items-center gap-3 group"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <motion.div 
+              <motion.div
                 className="relative"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >
-                <img 
-                  src="/logo.png" 
-                  alt="YaganSolutions" 
+                <img
+                  src="/logo.png"
+                  alt="YaganSolutions"
                   className="w-10 h-10 object-contain logo-glow"
                 />
                 {/* Orbiting particles */}
@@ -65,7 +64,7 @@ const Header = ({ scrollY }: HeaderProps) => {
                   <div className="absolute -top-1 left-1/2 w-1 h-1 bg-[#00C6C6] rounded-full" />
                 </motion.div>
               </motion.div>
-              
+
               <AnimatePresence>
                 {(isHovered || isScrolled) && (
                   <motion.div
@@ -94,11 +93,10 @@ const Header = ({ scrollY }: HeaderProps) => {
                 >
                   <Link
                     to={link.path}
-                    className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 group flex items-center gap-2 ${
-                      location.pathname === link.path
+                    className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 group flex items-center gap-2 ${location.pathname === link.path
                         ? 'text-white'
                         : 'text-white/70 hover:text-white'
-                    }`}
+                      }`}
                   >
                     {/* Active indicator */}
                     {location.pathname === link.path && (
@@ -108,7 +106,7 @@ const Header = ({ scrollY }: HeaderProps) => {
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
-                    
+
                     <span className="relative z-10 flex items-center gap-2">
                       <motion.span
                         className="opacity-0 group-hover:opacity-100 transition-opacity"
@@ -118,7 +116,7 @@ const Header = ({ scrollY }: HeaderProps) => {
                       </motion.span>
                       {link.label}
                     </span>
-                    
+
                     {/* Hover glow */}
                     <motion.div
                       className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -139,7 +137,7 @@ const Header = ({ scrollY }: HeaderProps) => {
               className="hidden md:block"
             >
               <Link
-                to="/contact"
+                to="/website-audit"
                 className="btn-primary text-sm flex items-center gap-2"
               >
                 <Sparkles className="w-4 h-4" />
@@ -179,7 +177,7 @@ const Header = ({ scrollY }: HeaderProps) => {
               className="absolute inset-0 bg-[#0D1433]/95 backdrop-blur-xl"
               onClick={() => setIsMenuOpen(false)}
             />
-            
+
             {/* Menu Content */}
             <motion.nav
               initial={{ x: '100%' }}
@@ -198,18 +196,17 @@ const Header = ({ scrollY }: HeaderProps) => {
                   >
                     <Link
                       to={link.path}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-                        location.pathname === link.path
+                      className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${location.pathname === link.path
                           ? 'bg-gradient-to-r from-[#1A56DB]/30 to-[#6C3FF5]/30 text-white'
                           : 'text-white/70 hover:text-white hover:bg-white/5'
-                      }`}
+                        }`}
                     >
                       {link.icon}
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
-                
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -217,7 +214,7 @@ const Header = ({ scrollY }: HeaderProps) => {
                   className="mt-4"
                 >
                   <Link
-                    to="/contact"
+                    to="/website-audit"
                     className="btn-primary w-full justify-center flex items-center gap-2"
                   >
                     <Sparkles className="w-4 h-4" />
@@ -225,7 +222,7 @@ const Header = ({ scrollY }: HeaderProps) => {
                   </Link>
                 </motion.div>
               </div>
-              
+
               {/* Decorative Elements */}
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="flex items-center gap-2 text-white/40 text-sm">

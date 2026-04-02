@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Sparkles, 
-  Zap, 
-  TrendingUp, 
+import { useEffect } from 'react';
+import {
+  ArrowRight,
+  Sparkles,
+  Zap,
+  TrendingUp,
   Shield,
   CheckCircle,
   Star,
@@ -17,6 +18,19 @@ import TypingText from '../components/TypingText';
 import LiquidGlassCard from '../components/LiquidGlassCard';
 
 const Home = () => {
+  // SEO Meta Description
+  useEffect(() => {
+    document.title = 'YaganSolutions | Transform Your Digital Presence - Web Development & SEO Experts';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Transform underperforming websites into powerful business assets. Expert web development, SEO optimization, and digital solutions. Get your free website audit today!');
+    }
+    return () => {
+      if (metaDescription) {
+        metaDescription.setAttribute('content', '');
+      }
+    };
+  }, []);
   const services = [
     {
       icon: <Globe className="w-8 h-8 text-[#1A56DB]" />,
@@ -47,8 +61,8 @@ const Home = () => {
   const process = [
     {
       number: '01',
-      title: 'Request',
-      description: 'Share your vision and requirements with us.',
+      title: 'Connect',
+      description: 'We reach out or you share your vision with us.',
       icon: <Sparkles className="w-6 h-6" />
     },
     {
@@ -72,7 +86,7 @@ const Home = () => {
     {
       number: '05',
       title: 'Grow',
-      description: 'Watch your business thrive online.',
+      description: 'Watch your business grow.',
       icon: <TrendingUp className="w-6 h-6" />
     }
   ];
@@ -124,7 +138,8 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Trust Badges */}
+          {/* Trust Badges - To be implemented later */}
+          {/* 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,6 +159,7 @@ const Home = () => {
               </motion.div>
             ))}
           </motion.div>
+          */}
 
           {/* Main Headline */}
           <motion.h1
@@ -154,7 +170,7 @@ const Home = () => {
           >
             <span className="text-white">We Improve</span>
             <br />
-            <TypingText 
+            <TypingText
               words={['Websites', 'SEO', 'Performance', 'Digital Presence', 'Business Growth']}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
               typingSpeed={120}
@@ -170,7 +186,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10"
           >
-            We find underperforming websites, rebuild them into powerful business assets, 
+            We find underperforming websites, rebuild them into powerful business assets,
             and help you dominate your digital space.
           </motion.p>
 
@@ -181,7 +197,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <Link to="/contact" className="btn-primary text-lg flex items-center justify-center gap-2">
+            <Link to="/website-audit" className="btn-primary text-lg flex items-center justify-center gap-2">
               <Sparkles className="w-5 h-5" />
               Get Free Website Audit
               <ArrowRight className="w-5 h-5" />
@@ -251,7 +267,7 @@ const Home = () => {
               Services That <span className="gradient-text">Drive Results</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              From discovery to deployment, we provide end-to-end digital solutions 
+              From discovery to deployment, we provide end-to-end digital solutions
               that transform your online presence.
             </p>
           </motion.div>
@@ -301,7 +317,7 @@ const Home = () => {
       {/* Process Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-radial" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -335,18 +351,14 @@ const Home = () => {
                   <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
                   <p className="text-white/60 text-sm">{step.description}</p>
                 </LiquidGlassCard>
-                
-                {/* Connector Line (hidden on mobile and last item) */}
-                {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-[#1A56DB] to-[#6C3FF5]" />
-                )}
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - To be implemented later */}
+      {/* 
       <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -373,17 +385,17 @@ const Home = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <LiquidGlassCard glowColor="cyan" className="h-full">
-                  {/* Stars */}
+                  {/* Stars *}/}
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  
+
                   <p className="text-white/80 mb-6 leading-relaxed">
                     "{testimonial.content}"
                   </p>
-                  
+
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1A56DB] to-[#6C3FF5] flex items-center justify-center text-white font-bold">
                       {testimonial.name.split(' ').map(n => n[0]).join('')}
@@ -399,11 +411,12 @@ const Home = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* CTA Section */}
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A56DB]/20 via-[#6C3FF5]/20 to-[#00C6C6]/20" />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -414,18 +427,18 @@ const Home = () => {
               Ready to Transform Your <span className="gradient-text">Digital Presence?</span>
             </h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Get a free website audit and discover how we can help you achieve 
+              Get a free website audit and discover how we can help you achieve
               your business goals. No obligations, just insights.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="btn-primary text-lg flex items-center justify-center gap-2">
+              <Link to="/website-audit" className="btn-primary text-lg flex items-center justify-center gap-2">
                 <Sparkles className="w-5 h-5" />
                 Start Your Free Audit
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
-            
+
             <p className="text-white/40 text-sm mt-6">
               Limited spots available. Secure yours today.
             </p>

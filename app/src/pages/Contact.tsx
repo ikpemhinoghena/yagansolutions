@@ -50,14 +50,14 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
-      value: 'hello@yagansolutions.com',
-      href: 'mailto:hello@yagansolutions.com'
+      value: 'help@yagansolutions.com',
+      href: 'mailto:help@yagansolutions.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Call Us',
-      value: '+1 (234) 567-890',
-      href: 'tel:+1234567890'
+      value: '+234 913 815 5550',
+      href: 'tel:+2349138155550'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -369,7 +369,7 @@ const Contact = () => {
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-white/70">
                     <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM EST</span>
+                    <span>8:00 AM - 8:00 PM EST</span>
                   </div>
                   <div className="flex justify-between text-white/70">
                     <span>Saturday</span>
@@ -381,7 +381,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <p className="text-white/50 text-xs mt-4">
-                  * 24/7 support available for maintenance clients
+                  * 24/7 support available for maintenance
                 </p>
               </LiquidGlassCard>
 
@@ -441,6 +441,34 @@ const Contact = () => {
               {
                 q: 'Can you work with existing websites?',
                 a: 'Absolutely. We can audit, optimize, and improve existing websites, or completely rebuild them depending on your needs and goals.'
+              },
+              {
+                q: 'Do you guarantee SEO improvements?',
+                a: 'While we cannot guarantee specific rankings due to search engine algorithms constantly changing, our data-driven SEO strategies have consistently delivered first-page rankings and significant traffic increases for our clients. We focus on sustainable, white-hat techniques that build long-term authority.'
+              },
+              {
+                q: 'What if I need custom tools or plugins?',
+                a: 'We specialize in custom digital products! From plugins and extensions to AI agents, dev tools, and graphic design, we can build tailored solutions to meet your unique business requirements. Just share your idea during the consultation.'
+              },
+              {
+                q: 'How many revisions are included?',
+                a: 'The number of revisions depends on your project scope. Our Starter plan includes 2 revision rounds, Professional includes 5 rounds, and Enterprise offers unlimited revisions. We collaborate closely with you to ensure the final product exceeds your expectations.'
+              },
+              {
+                q: 'Will I be able to update my website myself after launch?',
+                a: 'Yes! We build all our websites with user-friendly CMS integration, so you can easily update content, images, and blog posts. We also provide training and documentation, plus ongoing support if you prefer us to handle updates.'
+              },
+              {
+                q: 'What technologies do you use?',
+                a: 'We work with modern, industry-standard technologies including React, Next.js, TypeScript, Node.js, WordPress, Shopify, and more. We choose the best tech stack based on your specific project requirements, budget, and scalability needs.'
+              },
+              {
+                q: 'How involved do I need to be during the project?',
+                a: 'Our process is designed to be collaborative yet efficient. We require your input at key milestones (discovery, design review, testing), but we handle the heavy lifting. Regular updates and clear communication keep you informed without overwhelming your schedule.'
+              },
+              {
+                q: 'What is included in the free website audit?',
+                a: 'Our free audit provides a comprehensive analysis of your website\'s performance, SEO health, user experience, security vulnerabilities, and competitor benchmarking. You will receive a detailed report with prioritized recommendations and actionable insights to improve your site.'
               }
             ].map((faq, index) => (
               <motion.div

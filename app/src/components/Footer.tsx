@@ -23,14 +23,14 @@ const Footer = ({ openPolicyModal }: FooterProps) => {
     { label: 'Services', path: '/services' },
     { label: 'About Us', path: '/about' },
     { label: 'Contact', path: '/contact' },
-    { label: 'Free Audit', path: '/contact' },
+    { label: 'Free Audit', path: '/website-audit' },
   ];
 
   const services = [
     { label: 'Web Development', path: '/services' },
     { label: 'SEO Optimization', path: '/services' },
     { label: 'Website Maintenance', path: '/services' },
-    { label: 'Performance Audit', path: '/services' },
+    { label: 'Performance Audit', path: '/website-audit' },
     { label: 'Developer Tools', path: '/services' },
   ];
 
@@ -90,18 +90,18 @@ const Footer = ({ openPolicyModal }: FooterProps) => {
               {/* Contact Info */}
               <div className="space-y-3 mb-6">
                 <a 
-                  href="mailto:hello@yagansolutions.com" 
+                  href="mailto:help@yagansolutions.com" 
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
                 >
                   <Mail className="w-4 h-4 text-[#00C6C6]" />
-                  <span className="footer-link">hello@yagansolutions.com</span>
+                  <span className="footer-link">help@yagansolutions.com</span>
                 </a>
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+2349138155550" 
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
                 >
                   <Phone className="w-4 h-4 text-[#00C6C6]" />
-                  <span className="footer-link">+1 (234) 567-890</span>
+                  <span className="footer-link">+234 913 815 5550</span>
                 </a>
                 <div className="flex items-center gap-3 text-white/70">
                   <MapPin className="w-4 h-4 text-[#00C6C6]" />

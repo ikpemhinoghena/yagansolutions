@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { 
-  Target, 
-  Eye, 
-  Heart, 
-  Zap, 
-  Users, 
-  Award, 
+import { useEffect } from 'react';
+import {
+  Target,
+  Eye,
+  Heart,
+  Zap,
+  Users,
+  Award,
   TrendingUp,
   Globe,
   Code,
@@ -17,6 +18,20 @@ import { Link } from 'react-router-dom';
 import LiquidGlassCard from '../components/LiquidGlassCard';
 
 const About = () => {
+  // SEO Meta Description
+  useEffect(() => {
+    document.title = 'About YaganSolutions | Leading Technology Infrastructure Partner';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'YaganSolutions helps businesses and organizations build, improve, and maintain their technological infrastructure. Expert web development, SEO, and digital solutions with proven results.');
+    }
+    return () => {
+      if (metaDescription) {
+        metaDescription.setAttribute('content', '');
+      }
+    };
+  }, []);
+
   const values = [
     {
       icon: <Target className="w-8 h-8" />,
@@ -110,16 +125,16 @@ const About = () => {
                 We Are <span className="gradient-text">YaganSolutions</span>
               </h1>
               <p className="text-lg text-white/70 mb-6 leading-relaxed">
-                A team of digital craftsmen dedicated to transforming underperforming websites 
-                into powerful business assets. We do not just build websites—we build success stories.
+                We help businesses and organizations build, improve, and take care of their technological infrastructure.
               </p>
               <p className="text-white/60 mb-8 leading-relaxed">
-                Our unique approach combines cutting-edge technology with proven strategies, 
-                ensuring every project we deliver drives real, measurable results for our clients.
+                From custom web development to ongoing maintenance, our expert team delivers comprehensive digital solutions 
+                that drive growth and ensure your technology works as hard as you do. With a focus on innovation and excellence, 
+                we transform complex challenges into elegant, scalable solutions.
               </p>
-              
+
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+                <Link to="/careers" className="btn-primary inline-flex items-center gap-2">
                   <Sparkles className="w-5 h-5" />
                   Work With Us
                   <ArrowRight className="w-5 h-5" />
@@ -138,14 +153,14 @@ const About = () => {
             >
               <LiquidGlassCard glowColor="violet" className="h-96 flex items-center justify-center">
                 <div className="text-center">
-                  <img 
-                    src="/logo.png" 
-                    alt="YaganSolutions" 
+                  <img
+                    src="/logo.png"
+                    alt="YaganSolutions"
                     className="w-32 h-32 object-contain mx-auto mb-6 logo-glow"
                   />
                   <h3 className="text-2xl font-bold text-white mb-2">YaganSolutions</h3>
                   <p className="text-white/60">Digital Excellence Delivered</p>
-                  
+
                   <div className="flex justify-center gap-6 mt-8">
                     {[
                       { icon: <Code className="w-5 h-5" />, label: 'Development' },
@@ -167,7 +182,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section - To be implemented later */}
+      {/* 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -193,11 +209,13 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+      */}
 
-      {/* Our Story */}
+      {/* Our Story - To be implemented later */}
+      {/* 
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-radial" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -214,9 +232,9 @@ const About = () => {
           </motion.div>
 
           <div className="relative">
-            {/* Timeline Line */}
+            {/* Timeline Line *}/}
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#1A56DB] via-[#6C3FF5] to-[#00C6C6] hidden md:block" />
-            
+
             <div className="space-y-12">
               {milestones.map((milestone, idx) => (
                 <motion.div
@@ -225,9 +243,8 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className={`flex flex-col md:flex-row items-center gap-8 ${
-                    idx % 2 === 1 ? 'md:flex-row-reverse' : ''
-                  }`}
+                  className={`flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''
+                    }`}
                 >
                   <div className={`flex-1 ${idx % 2 === 1 ? 'md:text-left' : 'md:text-right'}`}>
                     <LiquidGlassCard className="inline-block">
@@ -236,12 +253,12 @@ const About = () => {
                       <p className="text-white/60">{milestone.description}</p>
                     </LiquidGlassCard>
                   </div>
-                  
-                  {/* Timeline Dot */}
+
+                  {/* Timeline Dot *}/}
                   <div className="hidden md:flex w-4 h-4 rounded-full bg-gradient-to-r from-[#1A56DB] to-[#6C3FF5] items-center justify-center z-10">
                     <div className="w-2 h-2 rounded-full bg-white" />
                   </div>
-                  
+
                   <div className="flex-1" />
                 </motion.div>
               ))}
@@ -249,6 +266,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* Values Section */}
       <section className="py-20">
@@ -292,10 +310,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section - To be implemented later */}
+      {/* 
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A56DB]/10 via-[#6C3FF5]/10 to-[#00C6C6]/10" />
-        
+              
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -313,7 +332,7 @@ const About = () => {
               A talented team of professionals passionate about delivering excellence.
             </p>
           </motion.div>
-
+      
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, index) => (
               <motion.div
@@ -336,7 +355,8 @@ const About = () => {
           </div>
         </div>
       </section>
-
+      */}
+      
       {/* Our Approach */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -352,7 +372,7 @@ const About = () => {
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
                 How We <span className="gradient-text">Work</span>
               </h2>
-              
+
               <div className="space-y-6">
                 {[
                   { title: 'Discovery', desc: 'We start by understanding your business, goals, and challenges.' },
@@ -385,7 +405,7 @@ const About = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">Results-Driven</h3>
                   <p className="text-white/60 max-w-sm">
-                    Every decision we make is backed by data and focused on delivering 
+                    Every decision we make is backed by data and focused on delivering
                     measurable results for your business.
                   </p>
                 </div>

@@ -31,7 +31,7 @@ const PolicyModal = ({ isOpen, type, onClose }: PolicyModalProps) => {
         <p className="mb-4 text-white/70">You have the right to access, correct, or delete your personal information. Contact us to exercise these rights.</p>
         
         <h3 className="text-lg font-semibold mb-3 text-white">6. Contact Us</h3>
-        <p className="text-white/70">If you have any questions about this Privacy Policy, please contact us at hello@yagansolutions.com</p>
+        <p className="text-white/70">If you have any questions about this Privacy Policy, please contact us at help@yagansolutions.com</p>
       `
     },
     cookie: {
